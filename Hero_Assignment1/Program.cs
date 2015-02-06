@@ -11,18 +11,23 @@ namespace Hero_Assignment1
         static void Main(string[] args)
         {
             //github please work
-            Console.Write("Suggest a name for your hero: ");
+            Console.Write("Enter a name for your hero: ");
             String name = Console.ReadLine(); 
 
-            //---Instantiating an object for Hero class---------------------
-            Hero hero = new Hero(name);
+            //Instantiating an object for Hero class
+            Hero myHero = new Hero(name);
 
-            //---Calling show() and fight() methods ------------------------
-            hero.show();
-            hero.fight();
+            //Calling show() and fight() methods 
+            myHero.show();
+            myHero.fight();
+            //Calling showPowers()
+            Console.WriteLine("+++++++++++++++++++++++++++++");
+            superHero mySuperHero = new superHero("lalluin");
+            mySuperHero.showPowers();
+            mySuperHero.fight();
 
             Console.WriteLine("\nPress any key to exit");
-            Console.ReadKey();//change
+            Console.ReadKey();
         
         }
     }

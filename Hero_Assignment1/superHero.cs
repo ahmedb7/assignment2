@@ -11,122 +11,79 @@ using System.Threading.Tasks;
 
 namespace Hero_Assignment1
 {
-    class superHero
-    {
-        static void Main(string[] args)
+    //sub class of hero class
+    class superHero : Hero
+    {        
+        //Private properties
+        private string[] superPowers;
+        //Public properties
+        string superPower1, superPower2, superPower3;
+        public string name1;
+        public superHero(string name1)
         {
+            this.name1 = name1;
+            this.showPowers();
+        }
+
+        //Constructor
+        public superHero(string name1,int strength,int speed,int health) : 
+            base(name1 , strength , speed , health)
+        {
+            this.generateRandomPowers();
+        }
 
 
-            string[] originalArray = { "Honda", "BMW", "Mercedes", "Jeep", "Ford", "Jaguar" }; // Literal Notation or Array Initializer 
-
-            string[] tempArray = new string[originalArray.Length];
-
-
-            string[] finalArray = new string[3]; // constructor Notation
-
+        // Private methods Generates random superpowers
+        private void generateRandomPowers()
+        {
+            //Array Initilization
+            string[] superPowers = { "Super Speed", "Super Strength", "Body Armour", "Flight", 
+                                     "Fire Generation", "Weather Control"};
+            
+            string[] randomPowers = new string[3];
+            
             Random rnd = new Random();
+            int rndPower;
 
-            int randomElement;
-
-
-            // Copy each element of the originalArray to tempArray
-            for (int element = 0; element < originalArray.Length; element++)
-            {
-                tempArray[element] = originalArray[element];
-            }
-
-
-
-            // Assign cells from one array to another
-
+            //Assign cells from an array to another 
             int index = 0;
-
-            while (index < finalArray.Length)
+            while (index < 3)
             {
-                randomElement = generateRandomElement(rnd, originalArray.Length); // Generate random number
-
-                if (tempArray[randomElement] != "unavailable")
+                rndPower = generateRandomPower(rnd);
+                if (superPowers[rndPower] != "unbelievable")
                 {
-                    finalArray[index] = tempArray[randomElement];
-
-                    tempArray[randomElement] = "unavailable";
-
+                    randomPowers[index] = superPowers[rndPower];
+                    superPowers[rndPower] = "unbelievable";
                     index++;
                 }
-
-
             }
 
-
-            /* Alternate Looping Structure
-            for (int index = 0; index < finalArray.Length; index++)
-            {
-                
-                randomElement = generateRandomElement(rnd);
-                if (originalArray[randomElement] != "unavailable")
-                {
-                    finalArray[index] = originalArray[randomElement];
-                    originalArray[randomElement] = "unavailable";
-                } 
-            }
-             */
-
-
-
-            /* Alternate way to declare and initialize an array
-            string[] originalArray = new string[6];
-            originalArray[0] = "Honda";
-            originalArray[1] = "BMW";
-            originalArray[2] = "Mercedes";
-            originalArray[3] = "Jeep";
-            originalArray[4] = "Ford";
-            originalArray[5] = "Jaguar";
-            */
-
-            Console.WriteLine("++++++++++++++++++++++++");
-            Console.WriteLine("+  Original Car  List  +");
-            Console.WriteLine("++++++++++++++++++++++++");
-
-            // Output the value of the each cell in each array
-            for (index = 0; index < originalArray.Length; index++)
-            {
-                Console.WriteLine(originalArray[index]);
-            }
-
-            Console.WriteLine("++++++++++++++++++++++++");
-            Console.WriteLine("+     New Car  List    +");
-            Console.WriteLine("++++++++++++++++++++++++");
-
-            for (index = 0; index < finalArray.Length; index++)
-            {
-
-                Console.WriteLine(finalArray[index]);
-            }
-
-
-
-
-
-
-
-            Console.WriteLine();
-            Console.WriteLine("+++++++++++++++++++++++++");
-            Console.WriteLine("Press any key to exit...");
-            Console.ReadKey();
-
-
+           
+            superPower1 = randomPowers[0];
+            superPower2 = randomPowers[1];
+            superPower3 = randomPowers[2];
         }
 
-        private static int generateRandomElement(Random rnd, int max)
+        //Generate random number for super power.
+        private static int generateRandomPower(Random rnd)
         {
-            int number;
-
-
-
-
-            number = rnd.Next(max);
-            //Console.WriteLine("My Random car is {0}", number); // Debugging line
-            return number;
+            int randomPower;
+            randomPower = rnd.Next(6);
+            Console.WriteLine("Random super power number is {0}", randomPower);// Debugging line
+            return randomPower;
         }
+        
+
+        //PUBLIC METHODS,output random super power.
+        public void showPowers()
+        {
+            Console.WriteLine("++++++++++++++++++++++++++++++++++++++");
+            Console.WriteLine("The hero's super powers are:");
+            Console.WriteLine("1) {0}", superPower1);
+            Console.WriteLine("2) {0}", superPower2);
+            Console.WriteLine("3) {0}", superPower3);
+            Console.WriteLine("++++++++++++++++++++++++++++++++++++++");
+        }
+        
     }
 }

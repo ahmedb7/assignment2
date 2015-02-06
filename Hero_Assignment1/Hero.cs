@@ -33,6 +33,15 @@ namespace Hero_Assignment1
             this.generateAbilities();
         }
 
+        public Hero(string name, int strength, int speed, int health)
+        {
+            
+            this.name = name;
+            this.strength = strength;
+            this.speed = speed;
+            this.health = health;
+        }
+
         //Method to assign values to the abilities of Hero
         private void generateAbilities()
         {
