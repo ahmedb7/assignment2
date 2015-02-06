@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Student Name: Benzir Ahmed
+ * Student ID: 300727117
+ * Assignment 2: SuperHero Class
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
