@@ -10,6 +10,7 @@ namespace Hero_Assignment1
     {
         static void Main(string[] args)
         {
+            //github please work
             Console.Write("Suggest a name for your hero: ");
             String name = Console.ReadLine(); 
 
