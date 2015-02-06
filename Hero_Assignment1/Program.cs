@@ -21,7 +21,7 @@ namespace Hero_Assignment1
             hero.fight();
 
             Console.WriteLine("\nPress any key to exit");
-            Console.ReadKey();
+            Console.ReadKey();//change
         
         }
     }
